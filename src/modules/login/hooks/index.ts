@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ILogin } from "../interfaces";
 
-import type { RedirectFunction } from "react-router-dom";
+import type { NavigateFunction } from "react-router-dom";
 
-export const useLogin = (redirect: RedirectFunction) => {
+export const useLogin = (navigate: NavigateFunction) => {
   const [error, setError] = useState<string>("");
 
   const handleLogin = async (userCredentials: ILogin) => {
@@ -28,7 +28,7 @@ export const useLogin = (redirect: RedirectFunction) => {
       );
 
       if (user) {
-        redirect("/");
+        navigate("/");
       } else {
         setError("Invalid username or password");
       }

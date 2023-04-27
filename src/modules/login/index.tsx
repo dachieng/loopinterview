@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import eyeOffOutline from "@iconify/icons-mdi/eye-off-outline";
 import eyeOutline from "@iconify/icons-mdi/eye-outline";
 
@@ -15,8 +15,9 @@ const LoginModule = () => {
     password: "",
   });
   const [tooglePassword, setTooglePassword] = useState<boolean>(false);
+  const navigate = useNavigate();
 
-  const { handleLogin, error } = useLogin(redirect);
+  const { handleLogin, error } = useLogin(navigate);
 
   const handleTooglePassword = () => {
     setTooglePassword((prev) => !prev);
