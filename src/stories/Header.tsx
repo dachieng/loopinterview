@@ -14,7 +14,6 @@ interface HeaderProps {
 }
 
 export const Header = ({ user, onLogin, onLogout }: HeaderProps) => {
-  console.log("hello", user);
   return (
     <header>
       <div className='wrapper'>

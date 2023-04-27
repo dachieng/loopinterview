@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 import { Header } from "../stories/Header";
@@ -6,6 +6,7 @@ import {
   getUserFromLocalStorage,
   removeUserFromLocalStorage,
 } from "../modules/login/helpers";
+import Sidebar from "./Sidebar";
 
 interface Props {}
 
@@ -13,22 +14,30 @@ const Layout: React.FC<Props> = () => {
   const userObject = getUserFromLocalStorage();
   const navigate = useNavigate();
 
-  console.log("u", userObject?.username);
-
   const handleLogout = () => {
     removeUserFromLocalStorage();
   };
 
+  useEffect(() => {
+    if (!userObject) {
+      navigate("/login");
+    }
+  }, [userObject?.username]);
+
   return (
     <>
-      <div>
-        <Header
-          user={userObject?.username}
-          onLogin={() => navigate("/login")}
-          onLogout={handleLogout}
-        />
+      <Header
+        user={userObject?.username}
+        onLogin={() => navigate("/login")}
+        onLogout={handleLogout}
+      />
+      <div className='main'>
+        {userObject ? <Sidebar /> : null}
+        <div className='main-content'>
+          {" "}
+          <Outlet />
+        </div>
       </div>
-      <Outlet />
     </>
   );
 };

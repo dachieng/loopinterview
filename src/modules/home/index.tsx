@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import { getUserFromLocalStorage } from "../login/helpers";
-import { redirect, useNavigate } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 const HomeModule = () => {
-  const user = getUserFromLocalStorage();
-  const navigate = useNavigate();
+  // extract tab from url
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const tab = searchParams.get("tab");
 
-  console.log("jd", user);
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-    }
-  }, [user]);
-  return <div>index</div>;
+  return (
+    <div>
+      {tab === "home" ? <p>This is home</p> : null}{" "}
+      {tab === "bookmarks" ? <p>This is bookmarks</p> : null}
+    </div>
+  );
 };
 
 export default HomeModule;
