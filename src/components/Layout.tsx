@@ -1,12 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { Button } from "../stories/Button";
 
 interface Props {}
 
 const Layout: React.FC<Props> = () => {
   return (
     <>
-      <div>Header Goes Here</div>
+      <div>
+        <Button label='Hello' />
+      </div>
       <Outlet />
     </>
   );

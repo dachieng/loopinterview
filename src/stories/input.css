@@ -1,0 +1,26 @@
+.input {
+  outline: none;
+  border-radius: 0.4rem;
+  padding: 0.55rem 0.4rem;
+  width: 97%;
+  border: 1px solid gray;
+}
+
+.input-container {
+  margin: 1rem 0;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.2rem;
+  top: 1.65rem;
+  cursor: pointer;
+}
+
+.input-container label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
