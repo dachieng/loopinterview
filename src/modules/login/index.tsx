@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import eyeOffOutline from "@iconify/icons-mdi/eye-off-outline";
 import eyeOutline from "@iconify/icons-mdi/eye-outline";
 
 import { Input } from "../../stories/Input";
 import { Button } from "../../stories/Button";
+import { useLogin } from "./hooks";
 
 import type { ILogin } from "./interfaces";
-import { useLogin } from "./hooks";
 
 const LoginModule = () => {
   const [userCredentials, setUserCredentials] = useState<ILogin>({

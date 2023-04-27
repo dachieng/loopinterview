@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ILogin } from "../interfaces";
 
+import { setUserToLocalStorage } from "../helpers";
+
 import type { NavigateFunction } from "react-router-dom";
 
 export const useLogin = (navigate: NavigateFunction) => {
@@ -19,8 +21,6 @@ export const useLogin = (navigate: NavigateFunction) => {
       );
       const data = await response.json();
 
-      console.log("user", data);
-
       const user = data.records.find(
         (record: { fields: { username: string; password: string } }) =>
           record.fields.username === userCredentials.username &&
@@ -28,6 +28,11 @@ export const useLogin = (navigate: NavigateFunction) => {
       );
 
       if (user) {
+        console.log("user", user);
+        setUserToLocalStorage(
+          userCredentials.username,
+          userCredentials.password
+        );
         navigate("/");
       } else {
         setError("Invalid username or password");
