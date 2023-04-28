@@ -74,3 +74,37 @@
 .main-content {
   flex: 1;
 }
+
+.searchAutocompleteItems {
+  background-color: white;
+  z-index: 1000;
+  border-radius: 0.5rem;
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+  width: 88%;
+}
+
+.searchItem {
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.search-container .search-input {
+  width: 97%;
+}
+
+.search-container button {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.home-main {
+  overflow-y: auto;
+}

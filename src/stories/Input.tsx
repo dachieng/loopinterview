@@ -8,7 +8,7 @@ interface Props {
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   type: "text" | "password";
-  label: string;
+  label?: string;
   placeholder: string;
   icon?: IconifyIcon;
   name: string;
@@ -24,12 +24,14 @@ export const Input: React.FC<Props> = ({
   placeholder,
   icon,
   onIconClick,
+
   ...props
 }) => {
   return (
     <div className='input-container'>
       <label>{label}</label>
       <input
+        autoComplete='off'
         className='input'
         value={value}
         onChange={onChange}

@@ -1,3 +1,5 @@
+import type { IMap } from "../interfaces";
+
 export const fetchMaps = async () => {
   try {
     const res = await fetch(
@@ -7,9 +9,16 @@ export const fetchMaps = async () => {
 
     const data = await res.json();
 
-    console.log("data", data);
+    const cleanedData: IMap[] = data.records.map((record: any) => {
+      return {
+        id: record.id,
+        name: record.fields.Name,
+      };
+    });
 
-    return data;
+    console.log("cleanedData", cleanedData);
+
+    return cleanedData;
   } catch (err) {
     console.error("error: ", err);
   }
