@@ -12,7 +12,7 @@ interface Props {
   placeholder: string;
   icon?: IconifyIcon;
   name: string;
-  onPasswordChange?: () => void;
+  onIconClick?: () => void;
 }
 
 export const Input: React.FC<Props> = ({
@@ -23,7 +23,7 @@ export const Input: React.FC<Props> = ({
   onChange,
   placeholder,
   icon,
-  onPasswordChange,
+  onIconClick,
   ...props
 }) => {
   return (
@@ -39,7 +39,7 @@ export const Input: React.FC<Props> = ({
         {...props}
       />
       {icon ? (
-        <Icon icon={icon} className='icon' onClick={onPasswordChange} />
+        <Icon icon={icon} className='icon' onClick={onIconClick} />
       ) : null}
     </div>
   );

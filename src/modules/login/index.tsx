@@ -52,7 +52,7 @@ const LoginModule = () => {
             placeholder='Enter password'
             name='password'
             icon={!tooglePassword ? eyeOffOutline : eyeOutline}
-            onPasswordChange={handleTooglePassword}
+            onIconClick={handleTooglePassword}
             onChange={handleChange}
           />
           <Button
