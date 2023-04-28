@@ -1,10 +1,12 @@
 .wrapper {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0px 2px 2px 0px rgba(130, 130, 130, 0.4),
+    0px 2px 3px 1px rgba(130, 130, 130, 0.4);
 }
 
 svg {

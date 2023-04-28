@@ -26,6 +26,7 @@ interface ButtonProps {
   margin?: string;
 
   type?: "submit" | "reset" | "button";
+  disabled?: boolean;
 }
 
 /**
@@ -37,6 +38,7 @@ export const Button = ({
   backgroundColor,
   margin,
   label,
+  disabled,
   ...props
 }: ButtonProps) => {
   const mode = primary

@@ -16,6 +16,7 @@ const Layout: React.FC<Props> = () => {
 
   const handleLogout = () => {
     removeUserFromLocalStorage();
+    window.location.reload();
   };
 
   useEffect(() => {
